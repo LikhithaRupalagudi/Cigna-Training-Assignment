@@ -40,3 +40,8 @@ FROM Emp e JOIN DEPT d ON e.deptno = d.deptno
 SELECT e.emp_name, d.dept_name, e.Job
 FROM Emp e LEFT JOIN DEPT d ON e.deptno = d.deptno
 WHERE dept_name = 'SALES';
+
+------4 List all employess along with their department name and location, including departments that have no employees.
+SELECT e.emp_name, d.dept_name, d.Loc,e.job
+FROM DEPT d LEFT JOIN Emp e ON d.deptno = e.deptno
+
