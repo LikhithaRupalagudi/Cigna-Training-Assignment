@@ -45,3 +45,30 @@ WHERE dept_name = 'SALES';
 SELECT e.emp_name, d.dept_name, d.Loc,e.job
 FROM DEPT d LEFT JOIN Emp e ON d.deptno = e.deptno
 
+--6 Show each department name and total  salary paid to its employees
+SELECT d.dept_name, SUM(e.salary) as Total_Salary from dept d
+JOIN emp e on d.deptno=e.deptno
+Group by d.dept_name;
+
+--7 Find departments that have more than 3 employees. Display dname and number of employees.
+SELECT d.dept_name, COUNT(e.empno) AS num_employees
+FROM DEPT d
+JOIN EMP e ON d.deptno = e.deptno
+GROUP BY d.dept_name
+HAVING COUNT(e.empno) >= 3;
+
+
+--8 Display employees who work in the same location as the ACCOUNTING Department
+SELECT emp_name FROM emp 
+WHERE deptno IN(
+SELECT deptno FROM dept WHERE loc =(SELECT LOC FROM dept where dept_name='ACCOUNTING'));
+                                                    
+--9 For each depart, display the employee who has the highest salary
+SELECT d.dept_name, e.emp_name, e.salary
+FROM EMP e
+JOIN DEPT d ON e.deptno = d.deptno
+WHERE (e.deptno, e.salary) IN (
+SELECT deptno, MAX(salary)
+FROM EMP
+GROUP BY deptno
+);
