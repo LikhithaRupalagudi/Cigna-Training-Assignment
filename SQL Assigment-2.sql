@@ -61,3 +61,19 @@ INSERT INTO OrderDetails VALUES (403, 303, 103, 3);
 SELECT *
 FROM Products
 WHERE Stock_Quantity < 20;
+
+-- QUERY 2: Calculate the total amount spent by each customer
+SELECT C.Customer_ID, SUM(O.Total_Amount) as Amount_Spent
+FROM Customers C
+JOIN Orders O ON C.Customer_ID = O.Customer_ID
+GROUP BY C.Customer_ID;
+
+-- QUERY 3: Update product stock quantities after orders are placed to reflect purchased items
+UPDATE Products P
+SET P.Stock_Quantity = P.Stock_Quantity - (
+SELECT OD.Quantity
+FROM OrderDetails OD
+WHERE OD.Product_ID = P.Product_ID)
+WHERE P.Product_ID IN (
+SELECT DISTINCT Product_ID
+FROM OrderDetails);
