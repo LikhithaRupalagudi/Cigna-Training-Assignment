@@ -1,0 +1,151 @@
+1.  Create a web page to create credit card payment screen (Refer the image for details).
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Secure online payments</title>
+    </head>
+    <body>
+        <h5>This is a secure 128-bit SSL Encrypted payments.you're safe</h5>
+        <form>
+            <input type="radio" value="Credit card" checked/> Cardit card(visa, Mastercard)
+            <input type="radio" value="paypal"/>paypal<br/><br/>
+            <label for="card number">card number<sub>the 16 digits on front of your card</sub></label><br/><br/>
+            <input type="text" id="r1" name="card"><br/><br/>
+            <label for="Expiration date"> Expiration date</label><br/>
+            <select  name="s1"  id="s1">
+            <option>Month</option>
+			<option>jan</option>
+			<option>Feb</option>
+			<option>March</option>
+			<option>Apr</option>
+		    <option>may </option>
+			</select>
+            <select  name="s1"  id="s1" >
+            <option>Year</option>
+			<option>2025</option>
+			<option>2024</option>
+			<option>2023</option>
+			<option>2022</option>
+		    <option>2021</option>
+			</select><br/><br/>
+			<label for="CVV2/CVC2">CVV2/CVC2<sub>The last 3 digits displayed on the back of the card</sub></label><br/>
+            <input type="text" name="cvv2/cvc2"><br/><br/>
+            <label for="first name">First name on the card</label>	<br/>
+            <input type="text" name="first name"><br/><br/>
+
+            
+        </form>
+        <p><center>you will be cjarged $29.00 every month</center></p>
+        <input type="submit" value="Complete transaction">
+    </body>
+</html>
+
+
+2.  Create a web page to develop pizza order page.
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width= device-width", intial-scale="1.0">
+        <title>PIZZA WEBSITE</title>
+        </head>
+        <body>
+            <h1>WELCOME TO ITALIAN PIZZA</h1>
+            <h3>we deliver pizza in 40 minutes max.if not-pizzas is on us</h3>
+            <hr/>
+            <form>
+                <label for="E-mail"> E-MAIL<br/>
+                <input type="text" id="e1" name="email"></label>
+                <br/><br/>
+            <label for="Phone"> Phone<br/>
+            <input type="text" id="a1" name="area" placeholder="area">
+            <input type="text" id="a1" name="Local" placeholder="local" >
+            <input type="text" id="a1" name="area" placeholder="local" ></label>
+            <br/></br/>
+            <label for="Number of slices"> Number of slices<br/>
+            <input type="text" id="e1" name="no.of slices"></label>
+                <br/><br/>
+            <label for="pizza size">Pizza size<br/>
+                <input  type="radio" id="r1"  name="r1"  value="8-inch" checked  />  8-inch
+				<input  type="radio" id="r2"  name="r1" value="10-inch" />  10-inch
+                <input type="radio" id="r3" name="r1" value="12-inch"/> 12-inch		
+                <input type="radio" id="r3" name="r1" value="14-inch"/> 14-inch			
+				<br/><br/>
+            </label>
+            <label for="toppings"> Toppings<br/>
+                <input type="checkbox" value="pepperoni" />pepperoni
+                <input type="checkbox" value="onions"/> onions 
+                <input type="checkbox" value="Mushrooms"/> Mushrooms
+                <input type="checkbox" value="sausage"/> sausage
+            </label><br/><br/><br/>
+            Are you agree terms and conditions?  
+			<input type="checkbox" value="Yes"  name="ck1"  id="ck1" />
+			<br/><br/>
+           <input type="submit" value="Order Now">
+
+            </form>
+    </body>
+
+  </html>
+
+ 3(a) Why do we use the value attribute of the <option> tag?
+
+In a <select> dropdown, the <option> tag is used to list choices.
+The value attribute specifies what data will be sent to the server when that option is selected.
+
+
+<select name="country">
+<option value="IN">India</option>
+<option value="US">United States</option>
+<option value="UK">United Kingdom</option>
+</select>
+
+3(b) What is <input type="hidden">? Why do we use it?
+
+<input type="hidden"> is an invisible field in a form.
+It stores information that the user does not see or change, but it is still submitted with the form.
+
+
+<form action="/submit" method="POST">
+<input type="hidden" name="userid" value="12345">
+<input type="text" name="name" placeholder="Enter your name">
+<input type="submit" value="Submit">
+</form>
+
+Use case examples:
+• To store user IDs, session tokens, or product IDs.
+• To send data automatically without showing it on screen.
+
+3(c) What are the table-related tags in HTML?
+
+
+<table> :Defines a table
+<tr> :Defines a row
+<th> :Defines a header cell (bold and centered by default)
+<td> :Defines a standard data cell
+<caption> :Adds a title or description for the table
+<thead> :Groups header rows
+<tbody> :Groups body rows
+<tfoot> :Groups footer rows
+<col> :Defines properties for each column
+<colgroup> :Groups columns for styling
+
+Eg:
+<table border="1">
+<caption>Student Details</caption>
+<thead>
+<tr>
+<th>Name</th>
+<th>Roll No</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Likhitha</td>
+<td>101</td>
+</tr>
+</tbody>
+</table>   
