@@ -1,0 +1,76 @@
+ Create a web page to define the functions for the following requirements + with UI
+			a.  Function to find average based on the total marks and no. of subjects. 
+			b.  Function to find out power value  ( x power y). Read x and y from user
+			c.   Function to return no. of words in the given string.   Read string from the user. 
+			
+			Hint :  Create separate functions for button clicks and the above functionalities
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Calculate average</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Average Marks</legend>
+            <label for="avg">Total marks</label><br/>
+            <input type="text" id="avg"><br/><br/>
+            <label for="ttlsub">Total subjects</label><br/>
+            <input type="text" id="ttlsub"><br/><br/>
+
+            <button onclick="handleAverage()"> Find average </button>
+            <p id="avgResult"></p>
+        </fieldset>
+        <fieldset>
+            <legend>Find Power</legend>
+            <label for="x">Enter X</label><br/>
+            <input type="text" id="x"><br/><br/>
+            <label for="y">Enter Y</label><br/>
+            <input type="text" id="y"><br/><br/>
+
+            <button onclick="handlePower()"> Find Power </button>
+            <p id="powerResult"></p>
+        </fieldset>
+        <fieldset>
+            <legend>Word count</legend>
+            <label for="sen">Enter sentence</label><br/>
+            <input type="text" id="str"><br/><br/>
+
+            <button onclick="handleCount()"> Find Count </button>
+            <p id="wordResult"></p>
+        </fieldset>
+        <script>
+            function FindAverage(total, subjects){
+                 return total/subjects;
+            }
+             function handleAverage() {
+                let total  = parseFloat(document.getElementById("avg").value);
+                let subjects = parseInt(document.getElementById("ttlsub").value);
+                let avg = FindAverage(total, subjects);
+                document.getElementById("avgResult").innerHTML = "Average Marks: " + avg.toFixed(2);
+             }
+ 
+            function findPower(x, y) {
+            return Math.pow(x, y);
+           }
+           function handlePower() {
+              let x = parseFloat(document.getElementById("x").value);
+              let y = parseFloat(document.getElementById("y").value);
+             let power = findPower(x, y);
+             document.getElementById("powerResult").innerHTML = x + " raised to the power " + y + " = " + power;
+            }
+            function countWords(str) {
+             if (str.trim() === "") return 0;
+            return str.trim().split(/\s+/).length;
+            }
+
+           function handleCount() {
+      let str = document.getElementById("str").value;
+      let wordCount = countWords(str);
+      document.getElementById("wordResult").innerHTML = "Number of words: " + wordCount;
+    }
+        </script>
+    </body>
+</html>
