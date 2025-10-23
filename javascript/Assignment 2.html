@@ -1,0 +1,57 @@
+ Create a web page to process product details using JavaScript.  Calculate total amount based on the given values.  (Refer the Image)
+
+		a.  Take the confirmation from the user before proceeding the total calculation. 
+
+	Hint :   If qty is more than 10  	---   give 10% discount 
+				 If qty is more than 20  	---   give 15% discount 
+				 If qty is more than 30  	---   give 20% discount 
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" intial scale="1.0">
+        <title>Discount page</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Total Amount</legend>
+            <label for="pname">Produt Name</label><br/>
+            <input type="text" id="pname"><br/><br/>
+
+             <label for="uprice">Unit price</label><br/>
+             <input type="text" id="uprice"><br/><br/>
+
+             <label for="qty">Quantity</label><br/>
+             <input type="text" id="qty"><br/><br/>
+
+             <button id="gettotal" onclick="Totalamount()">Get Total</button>
+             <p id="Totalamount"></p>
+        </fieldset>
+        <script>
+            function Totalamount(){
+            let pname = document.getElementById("pname").value;
+            let uprice= parseInt(document.getElementById("uprice").value);
+            let qty = parseFloat(document.getElementById("qty").value);
+            
+            let discount = 0;
+            if(qty >30){
+                discount = 20 ;
+            }
+            else if(qty > 20){
+                discount =  15;
+            }
+            else if (qty > 10){
+                discount = 10;
+            }
+            else{
+                discount = 0;
+            }
+            let total = qty * uprice;
+            let discountAmount = (discount / 100) * total;
+            let finalAmount = total - discountAmount;
+            document.getElementById("Totalamount").innerHTML = `Total Amount  ${finalAmount}`;
+        }
+        </script>
+    </body>
+</html>
