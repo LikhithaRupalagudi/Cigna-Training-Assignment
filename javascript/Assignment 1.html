@@ -1,0 +1,56 @@
+1  Update the Login login example to apply add the following requirement:  
+		-- If the user enter 3 times wrong password, we should notify the user. 
+		--  Display the warning message using alert
+		--  Disable the Login button 
+
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" intial scale="1.0">
+        <title>Login page</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Login Form</legend>
+          
+                <label for="uname" id="uname">Username</label><br/>
+                <input type="text" id="uname" name="uname"><br/><br/>
+
+                <label for="password">Password</label><br/>
+                <input type="password" id="password" name="password"><br/><br/>
+
+                <button id="checkbtn" onclick = "UserDetails()">Login</button>
+                <p id="info"> </p>
+         
+        </fielddset>
+        <script>
+           let count = 0;
+            function UserDetails(){
+                let uname = document.getElementById("uname").value;
+                let password = document.getElementById("password").value; 
+
+                if(uname == "likhitha" && password == "likhitha@123"){
+                    document.getElementById("info").innerHTML = `Welcome ${uname}`;
+                    document.getElementById("info").style.color = "green";
+                    document.getElementById("info").backgroundColor="Green";
+                }
+                else
+                {
+                    count ++;
+                   document.getElementById("info").innerHTML = `Invaild Username or password`;
+                    document.getElementById("info").style.color = "Red";
+                    document.getElementById("info").backgroundColor="white";
+
+                    if(count >= 3){
+            alert("You have entered wrong password 3 times. Login is dissabled!");
+            checkbtn.disabled = true;
+
+            }
+            }
+        }
+        </script>
+    </body>
+</html>
+
+
