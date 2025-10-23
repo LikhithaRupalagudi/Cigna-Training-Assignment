@@ -1,0 +1,42 @@
+Create a web page to read the meal price (base cost of a meal) from the user.  Find out the total cost of the meal by adding tip percent (10%), and tax percent (8%) for the base cost of the meal.   Round the result to the nearest integer. 
+		-->    Display all the details on the web page. 
+						Meals Base  Cost :   
+						Tip Amount    :  
+						Tax Amount   :  
+						Total Amount    : 
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title> Meal cost</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Total Meal cost </legend>
+            <label for="mealbase">Meal base cost</label><br/>
+            <input type="text" id="meal"><br/><br/>
+
+            <button onclick= "calculateMeal()">Get Amount</button>
+            <p id="res"></p>
+        </fieldset>
+        <script>
+            function calculateMeal(){
+                let meal = parseInt(document.getElementById("meal").value);
+                var tipAmount = 10;
+                var taxAmount = 8;
+
+                var tipAmount = (tipAmount /100) * meal;
+                var taxAmount = (taxAmount /100) * meal;
+
+                let Totalamount = meal + tipAmount +taxAmount;
+                document.getElementById("res").innerHTML = "Meal Base Cost: ₹" + meal + "<br>" +
+    "Tip Amount (10%): ₹" + tipAmount + "<br>" +
+    "Tax Amount (8%): ₹" + taxAmount+ "<br>" +
+    "<b>Total Amount: ₹" + Totalamount + "</b>";
+
+            }
+        </script>
+    </body>
+</html>
