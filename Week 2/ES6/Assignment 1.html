@@ -1,0 +1,63 @@
+1.   Create a web page to implement the following requirement using JavaScript.
+		a.   Create a collection of course names using array
+		b.   Provide separate buttons to perform : Show , Add, Remove
+		c.    Show -- display the avaialbel courses in list format
+		d.    Add --  add new course (read course name from user using textbox)
+		e.    Remove --  remove the course that entered in textbox 
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Collection of courses</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Course Management system</legend>
+            <label for="Course" id="Course">Enter course Name :</label><br/>
+            <input type="text" id="addCourse"><br/><br/>
+
+            <button onclick="Showcourse()">Show Courses</button>
+            <button onclick="Add()">Add Course</button>
+            <button onclick="Remove()">Remove Course</button>
+             <ul id="list">        
+             </ul>
+            <p id="display"></p>
+        </fieldset>
+    </body>
+    <script>
+        let course = ["HTML", "CSS", "Javascript","React"];
+        function Showcourse(){
+             let list = document.getElementById("list");
+              let str = "";
+
+            for(let i in course)
+            {
+               str += `<li>Availabel Courses: ${course[i]}</li>`
+            }
+            list.innerHTML = str;
+        }
+        function Add(){
+            let newCourse = document.getElementById("addCourse").value;
+            if(newCourse === ""){
+                alert("Please enter the course name!");
+            }
+            else{
+                course.push(newCourse);
+                alert("Course added Successfully!  " + newCourse);
+            }
+            Showcourse();
+        }
+        function Remove(){
+            let RemoveCourses = document.getElementById("addCourse").value;
+            let index = course.indexOf(RemoveCourses);
+            if (index !== -1){
+                course.splice(index, 1);
+                alert("Course removed succesfully !");
+            }else{
+                alert("Course not found");
+            }
+            Showcourse();
+        }
+    </script>
+</html>
