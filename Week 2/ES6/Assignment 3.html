@@ -1,0 +1,84 @@
+Update the Array of Students Objects Example (i.e Eg-7)  so that display the details in table format. 
+
+3.  Add the following requirement on the above example. Filter the data based on the course. 
+	Hint :  Use filter() method to filter data
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter Example - Array of Objects</title>
+</head>
+<body>
+  <h1>Advanced JavaScript - ES6 (Array of Objects with Filter)</h1>
+  <hr/>
+  <fieldset>
+    <legend>Cousre Fliter</legend>
+  
+  <button onclick="showAll()">Show All Students</button>
+  <p id="clss"></p>
+  <br><br>
+  
+  <label>Enter Course to Filter:</label><br/>
+  <input type="text" id="courseInput" ><br/><br/>
+  <button onclick="filterByCourse()">Filter</button>
+  
+  <div id="tableContainer"></div>
+</fieldset>
+  <script>
+    // Array of student objects
+    let studentsArray = [
+      {id: 10256, name: "Scott", course: "React"},
+      {id: 10257, name: "Allen", course: "Angular"},
+      {id: 10258, name: "John", course: "Vue"},
+      {id: 10259, name: "Smith", course: "Node"},
+      {id: 10260, name: "David", course: "Express"},
+      {id: 10261, name: "Sara", course: "React"}
+    ];
+
+    // Function to display table
+    function displayTable(data) {
+      let tableHTML = "<table border='1' cellpadding='8' cellspacing='0'>";
+      tableHTML += "<tr><th>ID</th><th>Name</th><th>Course</th></tr>";
+
+      for (let item of data) {
+        tableHTML += `<tr>
+          <td>${item.id}</td>
+          <td>${item.name}</td>
+          <td>${item.course}</td>
+        </tr>`;
+      }
+
+      tableHTML += "</table>";
+      document.getElementById("tableContainer").innerHTML = tableHTML;
+    }
+
+    // Show all students
+    function showAll() {
+      displayTable(studentsArray);
+    }
+
+    // Filter by course name
+    function filterByCourse() {
+      let courseName = document.getElementById("courseInput").value.trim();
+      if (courseName === "") {
+        alert("Please enter a course name!");
+        return;
+      }
+
+      // Use filter() to get matching records
+      let filtered = studentsArray.filter(student => 
+        student.course.toLowerCase() === courseName.toLowerCase()
+      );
+
+      if (filtered.length === 0) {
+        document.getElementById("tableContainer").innerHTML = "<p>No records found!</p>";
+      } else {
+        displayTable(filtered);
+      }
+    }
+  </script>
+</body>
+</html>
