@@ -1,0 +1,54 @@
+2.   Update the Array of Students Objects Example (i.e Eg-7)  so that display the details in table format. 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+</head>
+<body>
+    <h1>Advanced JavaScript - ES6 (Array of Objects)</h1>
+    <hr/>
+
+    <button  onclick="button1Click()">Button-1</button>
+    <hr/>
+
+    <div id="table">        
+    </div>
+ 
+
+    <hr/>
+    <script> 
+
+        function button1Click(){ 
+            let studentsArray = [
+                {id : 10256, name : "Scott", course : "React"},
+                {id : 10257, name : "David", course : "Angular"},
+                {id : 10258, name : "John", course : "Vue"},
+                {id : 10259, name : "smith", course : "Node"},
+                {id : 10260, name : "Allen", course : "Express"},
+            ];
+
+
+            let tableHTML ="<table border ='1' cellpadding='8' cellspacing = '0'>";
+            tableHTML +="<tr> <th>ID </th> <th> Name </th> <th>Course</th> </tr>"
+
+
+            for(let item of studentsArray)
+            {
+              tableHTML += `<tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.course}</td>
+               </tr>`
+            }
+
+            tableHTML += "</table>"
+            document.getElementById("table").innerHTML = tableHTML;
+
+ 
+        }
+    </script>
+</body>
+</html>
