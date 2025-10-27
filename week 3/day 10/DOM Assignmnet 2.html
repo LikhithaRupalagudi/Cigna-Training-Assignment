@@ -1,0 +1,67 @@
+   Create a web page to implement the following requirement:
+		a.  create table of rows with employee data
+		b.  create a button "Apply Styles" 
+		c.  Use DOM Accessing methods to access rows from the table 
+		d. Apply alternate rows with diff. background color on button click 
+
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Access the employee data with DOM</title>
+    </head>
+    <body>
+        <h2>Employee data</h2>
+        <table id="t1" border="1" cellspacing="0" cellpadding="8">
+            <tr>
+                <td>ID</td>
+                <td>Employee Name</td>
+                <td>Department</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>Likhitha</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Scott</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>John</td>
+                <td>HR</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>David</td>
+                <td>Manager</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>Raj</td>s
+                <td>Admin</td>
+            </tr>
+        </table>
+        <br/>
+        <button id="btn1" onclick="stylebtn()">Apply style</button>
+        <script>
+            function stylebtn(){
+                const table = document.getElementById("t1");
+                const rows = document.getElementsByTagName("tr");
+
+                for (let i = 1; i < rows.length; i++){
+                    if(i % 2 === 0){
+                         rows[i].style.backgroundColor= "Pink";
+                    }
+                    else{
+                        rows[i].style.backgroundColor="Green";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
