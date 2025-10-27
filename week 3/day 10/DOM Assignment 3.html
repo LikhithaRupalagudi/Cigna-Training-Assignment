@@ -1,0 +1,85 @@
+ Create a web page to add product details div at runtime. 
+
+		a.   Create a  section tag in html page to hold all produts
+		b.   Create button "Add Product"
+		c.    Each product should be placed in separate  Div tag 
+		d.   Inside the Div tag :     img tag, span for product name ,  p tag for description
+		e.   Use all dynamic options to create the required tags and add to section tag. 
+		
+		Optional :   Apply styles if required so that each product div should  display side by side. 
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic Product List</title>
+<style>
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .product {
+    border: 2px solid #333;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px gray;
+  }
+  .product img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  .product span {
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Product List</h2>
+<button id="addBtn">Add Product</button>
+
+<section id="productSection">
+  <!-- Dynamic product divs will appear here -->
+</section>
+
+<script>
+let count = 1;
+
+document.getElementById("addBtn").addEventListener("click", function() {
+  // Create a new div for each product
+  const productDiv = document.createElement("div");
+  productDiv.className = "product";
+
+  // Create image tag
+  const img = document.createElement("img");
+  img.src = "https://tse2.mm.bing.net/th/id/OIP.29GW-JI1dW2mvtNrl0S1CwHaE5?rs=1&pid=ImgDetMain&o=7&rm=3" + count;
+
+  // Create span for name
+  const name = document.createElement("span");
+  name.textContent = "Product " + count;
+
+  // Create paragraph for description
+  const desc = document.createElement("p");
+  desc.textContent = "This is description of Product " + count;
+
+  // Add all elements into div
+  productDiv.appendChild(img);
+  productDiv.appendChild(name);
+  productDiv.appendChild(desc);
+
+  // Add div into section
+  document.getElementById("productSection").appendChild(productDiv);
+
+  count++;
+});
+</script>
+
+</body>
+</html>
+
