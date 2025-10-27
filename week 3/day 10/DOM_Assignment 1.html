@@ -1,0 +1,67 @@
+1. Update the ToDoList Example with the following requirement. 
+
+		a.   Add a hyperlink in LI for delete the task.
+		b.   Implement functionality to delete the current task that you have selected
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Delegation Example</title>
+</head>
+<body>
+
+<h3>Adding Events Dynamically in JavaScript</h3>
+<hr/>
+
+<fieldset>
+  <legend>Tasks in my Hand</legend>
+  <ul id="list1" style="border:2px solid blue; padding:30px;">
+    <li>Send E-mail <a href="#" class="delete">Delete</a></li>
+    <li>Do Shopping <a href="#" class="delete">Delete</a></li>
+  </ul>
+</fieldset>
+
+<br/>
+<input id="t1" placeholder="New Task Info..." type="text" />
+<br/>
+<button id="addButton">Add Task</button>
+
+<script>
+  const listObj = document.getElementById("list1");
+  const btnObj = document.getElementById("addButton");
+
+ 
+  listObj.addEventListener("click", function(event) {
+    if (event.target.classList.contains("delete")) {
+      event.preventDefault();
+      event.target.parentElement.remove();
+    }
+    else if (event.target.tagName === "LI") {
+      if (event.target.style.textDecoration === "line-through") {
+        event.target.style.textDecoration = "none";
+      }
+     else {
+        event.target.style.textDecoration = "line-through";
+      }
+    }
+  });
+
+
+  btnObj.addEventListener("click", function() {
+    const textObj = document.getElementById("t1");
+    const taskText = textObj.value;
+    if (taskText === ""){
+        alert("Please enter a task");
+    
+    }
+    const listItemObj = document.createElement("li");
+    listItemObj.innerHTML = `${taskText} <a href="#" class="delete">Delete</a>`;
+    listObj.appendChild(listItemObj);
+
+    textObj.value = "";
+  });
+</script>
+
+</body>
+</html>
